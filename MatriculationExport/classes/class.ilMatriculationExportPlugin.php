@@ -251,7 +251,7 @@ class ilMatriculationExportPlugin extends ilTestExportPlugin
 								array_push($datarow, preg_replace("/<.*?>/", "", $data->getQuestionTitle($question["id"])));
 							}
 						}
-						if ($this->getTest()->isRandomTest() || $this->getTest()->getShuffleQuestions() || ($counter == 1 && $pass == 0))
+						if ($this->getTest()->isRandomTest() || ($counter == 1 && $pass == 0))
 						{
 							array_push($rows, $datarow);
 						}
