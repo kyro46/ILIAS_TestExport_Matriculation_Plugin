@@ -1,6 +1,8 @@
-# ILIAS 4.4+ Testresultexport including Matriculation #
+# ILIAS 4.4+ sorted Testresultexport including Matriculation #
 
-### Resultexport with additional matriculation for all participants ###
+### Sorted (e.g. with shuffled questions) Resultexport with additional matriculation ###
+ 
+
 
 ### Usage ###
 

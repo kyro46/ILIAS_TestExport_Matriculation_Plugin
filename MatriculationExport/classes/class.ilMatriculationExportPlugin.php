@@ -9,7 +9,7 @@ require_once 'Modules/Test/classes/class.ilTestExportPlugin.php';
  * @version $Id$
  * @ingroup ModulesTest
  */
-class ilMatrikulationExportPlugin extends ilTestExportPlugin
+class ilMatriculationExportPlugin extends ilTestExportPlugin
 {
 	/**
 	 * Get Plugin Name. Must be same as in class name il<Name>Plugin
@@ -20,7 +20,7 @@ class ilMatrikulationExportPlugin extends ilTestExportPlugin
 	 */
 	function getPluginName()
 	{
-		return 'MatrikulationExport';
+		return 'MatriculationExport';
 	}
 
 	/**
@@ -28,7 +28,7 @@ class ilMatrikulationExportPlugin extends ilTestExportPlugin
 	 */
 	protected function getFormatIdentifier()
 	{
-		return 'csv';
+		return 'matriculation.csv';
 	}
 
 	/**
@@ -240,7 +240,11 @@ class ilMatrikulationExportPlugin extends ilTestExportPlugin
 						array_push($datarow2, $pass+1);
 						if (is_object($data->getParticipant($active_id)) && is_array($data->getParticipant($active_id)->getQuestions($pass)))
 						{
-							foreach ($data->getParticipant($active_id)->getQuestions($pass) as $question)
+							$sortedquestions = array ();
+							$sortedquestions = $data->getParticipant($active_id)->getQuestions($pass);
+							asort($sortedquestions);
+							
+							foreach ($sortedquestions as $question)
 							{
 								$question_data = $data->getParticipant($active_id)->getPass($pass)->getAnsweredQuestionByQuestionId($question["id"]);
 								array_push($datarow2, $question_data["reached"]);
